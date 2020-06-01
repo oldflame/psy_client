@@ -1,0 +1,39 @@
+.tooltip,
+.tooltip.in {
+  opacity: 1;
+}
+
+.tooltip {
+  &.left {
+    .tooltip-arrow {
+      border-left-color: white;
+    }
+  }
+  &.right {
+    .tooltip-arrow {
+      border-right-color: white;
+    }
+  }
+  &.top {
+    .tooltip-arrow {
+      border-top-color: white;
+    }
+  }
+  &.bottom {
+    .tooltip-arrow {
+      border-bottom-color: white;
+    }
+  }
+}
+
+.tooltip-inner,
+.mat-tooltip {
+  padding: 1rem;
+  min-width: 100px;
+}
+
+.mat-tooltip {
+  text-align: center;
+  font-size: 1rem !important;
+  word-wrap: break-word;
+}

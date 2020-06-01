@@ -1,0 +1,30 @@
+<nav class="navbar navbar-top navbar-expand navbar-darkq border-bottom" id="navbar-main">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <button mat-icon-button color="primary" (click)="openSidebar()"><mat-icon>menu</mat-icon></button>
+      <h1 class="mt-2">{{getTitle()}}</h1>
+      <!-- User -->
+      <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+        <li class="nav-item pointer">
+          <a class="nav-link pr-0" role="button" [matMenuTriggerFor]="userMenu">
+            <div class="media align-items-center">
+              <span class="avatar avatar-sm rounded-circle">
+                <img alt="Image placeholder" src="assets/img/theme/team-1.jpg" />
+              </span>
+              <div class="media-body ml-2 d-none d-lg-block">
+                <span class="mb-0 text-sm  font-weight-bold">{{ (user$ | async)?.firstName }}
+                  {{ (user$ | async)?.lastName }}</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item>My Profile</button>
+          <button mat-menu-item (click)="logout()">Logout
+          </button>
+        </mat-menu>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div *ngIf="sidenavOpen === true" class="backdrop d-xl-none" (click)="toggleSidenav()"></div>
