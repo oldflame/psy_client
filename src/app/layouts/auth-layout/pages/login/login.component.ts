@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
             `Welcome, ${this.authService.getUserData().firstName}`,
             TOAST_TYPE.SUCCESS
           );
-          this.router.navigate(['/overview']);
+          this.router.navigate(['/welcome']);
         }
       });
   }
