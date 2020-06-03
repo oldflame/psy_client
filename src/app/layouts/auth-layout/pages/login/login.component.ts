@@ -33,10 +33,10 @@ export class LoginComponent implements OnInit {
       .subscribe((res: boolean) => {
         if (res) {
           this.toastService.showToast(
-            `Welcome, ${this.authService.getAdminData().firstName}`,
+            `Welcome, ${this.authService.getUserData().firstName}`,
             TOAST_TYPE.SUCCESS
           );
-          this.router.navigate(['/overview']);
+          this.router.navigate(['/welcome']);
         }
       });
   }
