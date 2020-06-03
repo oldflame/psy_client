@@ -14,7 +14,7 @@ import { MaterialModule } from '../../material.module';
     RouterModule.forChild(AuthLayoutRoutes),
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
   ],
   declarations: [
     LoginComponent,

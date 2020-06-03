@@ -4,7 +4,7 @@
       <div class="header-body text-center mb-6">
         <div class=" row justify-content-center">
           <div class=" col-xl-5 col-lg-6 col-md-8 px-5">
-            <h1 class=" text-white">Welcome to Pysch Admin!</h1>
+            <h1 class=" text-white">Welcome to Pysch!</h1>
           </div>
         </div>
       </div>
@@ -24,7 +24,7 @@
         <div class=" card bg-secondary border-0 mb-0">
           <div class=" card-body px-lg-5 py-lg-5">
             <div class=" text-center text-muted mb-4">
-              <small> Register for Pysch Admin </small>
+              <small> Register for Pysch App </small>
             </div>
             <form [formGroup]="registrationForm">
               <div class="row">
@@ -80,14 +80,55 @@
                 </div>
                 <div class="col-12 col-sm-6">
                   <mat-form-field appearance="outline">
+                    <input matInput [matDatepicker]="birthdate" [max]="maxBirthdate" placeholder="Birthdate"
+                      formControlName="birthdate" (focus)="birthdate.open()">
+                    <mat-datepicker-toggle matSuffix [for]="birthdate"></mat-datepicker-toggle>
+                    <mat-datepicker [touchUi]="isMobileDisplay()" #birthdate></mat-datepicker>
+                    <mat-error *ngIf="registrationForm.get('birthdate').hasError('required')">Birthdate is
+                      <strong>required.</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <mat-form-field appearance="outline">
                     <mat-label>Gender</mat-label>
                     <mat-select formControlName="gender">
                       <mat-option *ngFor="let gender of genderTypes" [value]="gender.value">
                         {{gender.viewValue}}
                       </mat-option>
                     </mat-select>
-                    <mat-error *ngIf="registrationForm.get('gender').hasError('required')">Gender is
-                      <strong>required.</strong>
+                    <mat-error *ngIf="registrationForm.get('gender').hasError('required')">Please select
+                      <strong>atleast one</strong> option.
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Race</mat-label>
+                    <mat-select formControlName="race">
+                      <mat-option *ngFor="let race of raceTypes" [value]="race.value">
+                        {{race.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="registrationForm.get('race').hasError('required')">Please select
+                      <strong>atleast one</strong> option.
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Ethnicity</mat-label>
+                    <mat-select formControlName="ethnicity">
+                      <mat-option *ngFor="let ethnicity of ethnicityTypes" [value]="ethnicity.value">
+                        {{ethnicity.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="registrationForm.get('ethnicity').hasError('required')">Please select
+                      <strong>atleast one</strong> option.
                     </mat-error>
                   </mat-form-field>
                 </div>
