@@ -1,5 +1,67 @@
 <div class="page-content">
   <div class="container-fluid">
-    Welcome works!
+    <div class="row">
+      <div class="col-12 col-md-8 col-lg-6 m-auto">
+        <carousel [activeSlide]="activeSlide" [isAnimated]="isCarouselAnimated" [showIndicators]="carouselIndicator"
+          [interval]="carouselInterval" noWrap="true" noPause="false">
+          <div class="card">
+            <div class="card-body welcome-card">
+              <slide>
+                <div class="text-center">
+                  <img src="../../../assets/img/nature.png" alt="pysch-icon"
+                    class="animate__animated animate__slideInDown">
+                  <h1 class="text-center animate__animated animate__slideInUp mt-3">Pysch</h1>
+                  <p class="text-center animate__animated animate__slideInUp">Some description for the app</p>
+                  <button mat-raised-button color="primary" class="animate__animated animate__slideInUp"
+                    (click)="nextSlide()">Continue</button>
+                </div>
+              </slide>
+              <slide>
+                <div class="text-center animate__animated animate__fadeIn">
+                  <h1 class="text-center  mt-3">Ethics Slide</h1>
+                  <p class="text-center ">Information about the study</p>
+                  <button mat-raised-button color="primary" (click)="nextSlide()">Continue</button>
+                </div>
+              </slide>
+              <slide>
+                <div class="text-center animate__animated animate__fadeIn">
+                  <h1 class="text-center  mt-3">Consent Form</h1>
+                  <p class="text-center ">Show Form here</p>
+                  <button mat-raised-button color="primary" (click)="nextSlide()">Continue</button>
+                </div>
+              </slide>
+              <slide>
+                <div class="text-center animate__animated animate__fadeIn">
+                  <h1 class="text-center  mt-3">Fixed Demographic Questions</h1>
+                  <p class="text-center">Demographic questions here</p>
+                  <button mat-raised-button color="primary" (click)="nextSlide()">Continue</button>
+                </div>
+              </slide>
+              <slide>
+                <div class="text-center animate__animated animate__fadeIn">
+                  <h1 class="text-center  mt-3">Random Demographic Questions</h1>
+                  <p class="text-center">Demographic questions here</p>
+                  <button mat-raised-button color="primary" (click)="nextSlide()">Continue</button>
+                </div>
+              </slide>
+              <slide>
+                <div class="text-center animate__animated animate__fadeIn">
+                  <h1 class="text-center  mt-3">Game Instructions</h1>
+                  <p class="text-center">Demo video and instructions here</p>
+                  <button mat-raised-button color="primary" (click)="nextSlide()">Continue</button>
+                </div>
+              </slide>
+              <slide>
+                <div class="text-center animate__animated animate__fadeIn">
+                  <h1 class="text-center  mt-3">Game Trial</h1>
+                  <p class="text-center">Trial game here</p>
+                  <button mat-raised-button color="primary" (click)="nextSlide()">Play Now</button>
+                </div>
+              </slide>
+            </div>
+          </div>
+        </carousel>
+      </div>
+    </div>
   </div>
 </div>

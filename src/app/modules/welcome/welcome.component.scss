@@ -1,0 +1,19 @@
+img {
+  width: 40%;
+}
+
+.welcome-card {
+  min-height: 50vh;
+  padding: 2.5rem;
+}
+
+::ng-deep .carousel-indicators {
+  bottom: 20px;
+}
+
+::ng-deep .carousel-indicators li {
+  background-color: #aaa;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}

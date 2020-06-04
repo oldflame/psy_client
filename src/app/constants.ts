@@ -141,3 +141,11 @@ export const DATE_PICKER_FORMAT = {
     monthYearA11yLabel: 'MMMM YYYY',
   },
 };
+
+export const LOTTIE_ASSETS = {
+  CORRECT_RESPONSE: "https://assets9.lottiefiles.com/packages/lf20_56Jc5o.json",
+  INCORRECT_RESPONSE: "https://assets2.lottiefiles.com/packages/lf20_ed9D2z.json",
+  NO_RESPONSE: "https://assets1.lottiefiles.com/temp/lf20_9gY9Yf.json"
+}
+
+export const WELCOME_SLIDES_COUNT = 7;
