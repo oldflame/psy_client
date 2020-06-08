@@ -143,14 +143,41 @@
               <slide>
                 <div class="text-center animate__animated animate__fadeIn">
                   <h1 class="text-center  mt-3">Game Trial</h1>
-                  <p class="text-center">Trial game here</p>
+                  <game-trial *ngIf="!displayTrialResult" (trialEnd)="showTrialResults($event)"></game-trial>
+                  <div *ngIf="displayTrialResult" class="table-responsive">
+                    <h2 class="text-center">Game Results</h2>
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">Gesture</th>
+                          <th scope="col">Best Response Time</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Swipe Up</td>
+                          <td>{{ userResponseTimes.swipeUp | number: '0.0-0' }} ms</td>
+                        </tr>
+                        <tr>
+                          <td>Swipe Down</td>
+                          <td>{{ userResponseTimes.swipeDown | number: '0.0-0' }} ms</td>
+                        </tr>
+                        <tr>
+                          <td>Swipe Sideways</td>
+                          <td>{{ userResponseTimes.swipeSide | number: '0.0-0' }} ms</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h3 class="text-center mt-2 text-info">You have successfully completed setup and training. Click on continue to begin playing!</h3>
+                  </div>
                 </div>
               </slide>
             </div>
           </div>
         </carousel>
         <div class="d-flex justify-content-center">
-          <button mat-raised-button color="primary" (click)="nextSlide()">Continue</button>
+          <button mat-raised-button color="primary" class="animate__animated animate__slideInUp" *ngIf="showContinue"
+          (click)="nextSlide()">Continue</button>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { MaterialModule } from '../../material.module';
 import { RouterModule } from '@angular/router';
 import { WelcomeRoutes } from './welcome.routing';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { WidgetsModule } from '../general/widgets/widgets.module';
 
 @NgModule({
   declarations: [WelcomeComponent],
@@ -12,7 +13,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     CommonModule,
     MaterialModule,
     RouterModule.forChild(WelcomeRoutes),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    WidgetsModule
   ],
 })
 export class WelcomeModule {}
