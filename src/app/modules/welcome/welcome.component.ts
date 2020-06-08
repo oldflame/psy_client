@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { WELCOME_SLIDES_COUNT } from '../../constants';
+import { ResponseTime } from 'src/app/models/response-time';
 
 @Component({
   selector: 'app-welcome',
@@ -11,12 +12,27 @@ export class WelcomeComponent implements OnInit {
   isCarouselAnimated = false;
   carouselIndicator = true;
   carouselInterval = false;
+  showContinue = true;
+  displayTrialResult = false;
 
-  constructor() {}
+  userResponseTimes: ResponseTime;
 
-  ngOnInit(): void {}
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+
+  ngOnInit(): void {
+  }
 
   nextSlide() {
+    if (this.activeSlide == WELCOME_SLIDES_COUNT - 2) {
+      this.showContinue = false;
+    }
     this.activeSlide = this.activeSlide < WELCOME_SLIDES_COUNT - 1 ? this.activeSlide + 1 : this.activeSlide;
+  }
+
+  showTrialResults(results: ResponseTime) {
+    console.log('Trial results: ', results);
+    this.userResponseTimes = results;
+    this.showContinue = true;
+    this.displayTrialResult = true;
   }
 }

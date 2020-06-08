@@ -149,3 +149,7 @@ export const LOTTIE_ASSETS = {
 }
 
 export const WELCOME_SLIDES_COUNT = 7;
+
+export enum SWIPE_ACTION {
+  UP, DOWN, LEFT, RIGHT
+}
