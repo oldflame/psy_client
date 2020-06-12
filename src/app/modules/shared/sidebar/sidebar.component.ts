@@ -37,6 +37,12 @@ export const ROUTES: RouteInfo[] = [
     type: 'link',
     icontype: 'spa',
   },
+  {
+    path: '/play',
+    title: 'Play Game',
+    type: 'link',
+    icontype: 'model_training',
+  },
 ];
 
 @Component({

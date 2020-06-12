@@ -5,6 +5,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthLayoutModule } from './layouts/auth-layout/auth-layout.module';
 import { WelcomeModule } from './modules/welcome/welcome.module';
+import { TrainingModule } from './modules/training/training.module';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
       {
         path: 'welcome',
         loadChildren: () => WelcomeModule,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: 'play',
+        loadChildren: () => TrainingModule,
         canActivate: [AuthGuardService],
       },
     ],

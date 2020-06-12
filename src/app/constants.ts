@@ -153,3 +153,7 @@ export const WELCOME_SLIDES_COUNT = 7;
 export enum SWIPE_ACTION {
   UP, DOWN, LEFT, RIGHT
 }
+
+export const TRAINING_API = {
+  GET_RANDOM_TRAINING: "/api/account/user/trainings/random"
+}

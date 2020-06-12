@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { WELCOME_SLIDES_COUNT } from '../../constants';
 import { ResponseTime } from 'src/app/models/response-time';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -17,7 +18,7 @@ export class WelcomeComponent implements OnInit {
 
   userResponseTimes: ResponseTime;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -25,6 +26,9 @@ export class WelcomeComponent implements OnInit {
   nextSlide() {
     if (this.activeSlide == WELCOME_SLIDES_COUNT - 2) {
       this.showContinue = false;
+    }
+    if (this.activeSlide == WELCOME_SLIDES_COUNT - 1) {
+      this.router.navigate(['/play']);
     }
     this.activeSlide = this.activeSlide < WELCOME_SLIDES_COUNT - 1 ? this.activeSlide + 1 : this.activeSlide;
   }
