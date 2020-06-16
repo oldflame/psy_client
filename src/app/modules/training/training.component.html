@@ -1,0 +1,22 @@
+<div class="page-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-10 col-lg-8 mr-auto ml-auto">
+        <div class="card">
+          <div class="card-body">
+            <div class="text-center" *ngIf="currentStepIndex == -1">
+              <img src="../../../assets/img/nature.png" alt="pysch-icon" class="animate__animated animate__slideInDown">
+              <h1 class="text-center animate__animated animate__slideInUp mt-3">Are you ready to <strong>Psych</strong>?
+              </h1>
+              <p class="text-center animate__animated animate__slideInUp">Click on <strong>Start</strong> to begin game!
+              </p>
+              <button mat-raised-button color="primary" (click)="stepForward()" [disabled]="disableGame">Start</button>
+            </div>
+            <questions [questionCategory]="currentStep.category" *ngIf="currentStepIndex != -1 && currentStep.actionType == trainingActionType.QUESTION" (responseSubmit)="handleQuestionnaireResponse($event)"></questions>
+            <images [imageCategory]="currentStep.category" *ngIf="currentStepIndex != -1 && currentStep.actionType == trainingActionType.IMAGE" [imageCount]="currentStep.quantity" [imageType]="currentStep.imageType" (responseSubmit)="handleImagesResponse($event)"></images>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

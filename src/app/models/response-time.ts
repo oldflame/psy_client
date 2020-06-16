@@ -3,3 +3,9 @@ export interface ResponseTime {
   swipeDown: number;
   swipeSide: number;
 }
+
+export interface TrainingImagesResponse {
+  imageId: string;
+  time: number;
+  isCorrect: boolean;
+}

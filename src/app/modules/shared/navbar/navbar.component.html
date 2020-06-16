@@ -1,7 +1,12 @@
 <nav class="navbar navbar-top navbar-expand navbar-darkq border-bottom" id="navbar-main">
   <div class="container-fluid">
     <div class="collapse navbar-collapse d-inline-flex justify-content-between" id="navbarSupportedContent">
-      <h1 class="mt-1">{{getTitle()}}</h1>
+      <span class="d-flex">
+        <button mat-mini-fab class="mr-2" color="primary">
+          <mat-icon>{{getIcon()}}</mat-icon>
+        </button>
+        <h1 class="mt-1">{{getTitle()}}</h1>
+      </span>
       <!-- User -->
       <ul class="navbar-nav align-items-center ml-auto ml-md-0">
         <li class="nav-item pointer">

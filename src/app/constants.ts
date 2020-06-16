@@ -148,8 +148,19 @@ export const LOTTIE_ASSETS = {
   NO_RESPONSE: "https://assets1.lottiefiles.com/temp/lf20_9gY9Yf.json"
 }
 
-export const WELCOME_SLIDES_COUNT = 7;
+export const WELCOME_SLIDES_COUNT = 5;
 
 export enum SWIPE_ACTION {
   UP, DOWN, LEFT, RIGHT
+}
+
+export enum TRAINING_ACTION_TYPE {
+  IMAGE,
+  QUESTION,
+}
+
+export const TRAINING_API = {
+  GET_RANDOM_TRAINING: "/api/account/user/trainings/random",
+  GET_QUESTIONS_BY_CATEGORY: "/api/account/questions/{questioncategory}",
+  GET_IMAGES_BY_CATEGORY: "/api/account/images/sampleByCategory/{categoryId}/{type}/{count}"
 }

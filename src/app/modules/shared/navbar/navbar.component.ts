@@ -59,6 +59,31 @@ export class NavbarComponent implements OnInit {
     this.user$ = this.authService.auth$;
   }
 
+  getIcon() {
+    let title: any = this.location.prepareExternalUrl(this.location.path());
+    if (title.indexOf("?") != -1) {
+      title = title.substring(0, title.indexOf("?"));
+    }
+    for (let i = 0; i < this.listTitles.length; i++) {
+      if (
+        (this.listTitles[i].type === "link" ||
+          this.listTitles[i].type === "child") &&
+        this.listTitles[i].path === title
+      ) {
+        return this.listTitles[i].icontype;
+      } else if (this.listTitles[i].type === "sub") {
+        for (let j = 0; j < this.listTitles[i].children.length; j++) {
+          const subtitle =
+            this.listTitles[i].path + "/" + this.listTitles[i].children[j].path;
+          if (subtitle === title) {
+            return this.listTitles[i].children[j].icontype;
+          }
+        }
+      }
+    }
+    return "home";
+  }
+
   getTitle() {
     let title: any = this.location.prepareExternalUrl(this.location.path());
     if (title.indexOf("?") != -1) {
