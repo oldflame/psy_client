@@ -84,7 +84,7 @@ export class ImagesComponent implements OnInit {
     if (event.target['id'] == 'trial-img') {
       this.evaluateResponse()
         if (this.currentImageIndex == this.images.length - 1) {
-          this.responseSubmit.emit(this.responseTimes);
+          this.responseSubmit.emit({responses: this.responseTimes});
         } else {
           this.currentImageIndex =
             this.currentImageIndex < this.images.length
@@ -128,6 +128,7 @@ export class ImagesComponent implements OnInit {
 
     this.responseTimes.push({
       imageId: this.images[this.currentImageIndex]._id,
+      url: this.images[this.currentImageIndex].url,
       time: this.endTime - this.startTime,
       isCorrect: response
     });

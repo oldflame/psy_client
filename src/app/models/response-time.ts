@@ -8,4 +8,5 @@ export interface TrainingImagesResponse {
   imageId: string;
   time: number;
   isCorrect: boolean;
+  url: string;
 }

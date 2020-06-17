@@ -23,6 +23,17 @@ export const AUTH_API = {
   REGISTER: '/api/user/register',
 };
 
+export const TRAINING_API = {
+  GET_ONGOING_TRAINING: "/api/account/user/training/ongoing",
+  START_TRAINING_SESSION: "/api/account/user/trainingSession/start",
+  END_TRAINING_SESSION: "/api/account/user/trainingSession/end",
+  FIND_TRAINING_BY_ID: "/api/account/trainings/{trainingId}",
+  UPDATE_TRAINING_RESPONSE: "/api/account/user/trainingSession/response/{sessionId}",
+  GET_QUESTIONS_BY_CATEGORY: "/api/account/questions/{questioncategory}",
+  GET_IMAGES_BY_CATEGORY: "/api/account/images/sampleByCategory/{categoryId}/{type}/{count}",
+  FIND_SESSION_BY_ID: "/api/account/user/trainingSession/{sessionId}"
+}
+
 export enum HTTP_RESPONSE_STATUS {
   OK = 200,
   BAD_REQUEST = 400,
@@ -157,10 +168,4 @@ export enum SWIPE_ACTION {
 export enum TRAINING_ACTION_TYPE {
   IMAGE,
   QUESTION,
-}
-
-export const TRAINING_API = {
-  GET_RANDOM_TRAINING: "/api/account/user/trainings/random",
-  GET_QUESTIONS_BY_CATEGORY: "/api/account/questions/{questioncategory}",
-  GET_IMAGES_BY_CATEGORY: "/api/account/images/sampleByCategory/{categoryId}/{type}/{count}"
 }

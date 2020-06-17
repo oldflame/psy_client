@@ -10,10 +10,10 @@
               </h1>
               <p class="text-center animate__animated animate__slideInUp">Click on <strong>Start</strong> to begin game!
               </p>
-              <button mat-raised-button color="primary" (click)="stepForward()" [disabled]="disableGame">Start</button>
+              <button mat-raised-button color="primary" (click)="startSession()" [disabled]="disableGame">Start</button>
             </div>
-            <questions [questionCategory]="currentStep.category" *ngIf="currentStepIndex != -1 && currentStep.actionType == trainingActionType.QUESTION" (responseSubmit)="handleQuestionnaireResponse($event)"></questions>
-            <images [imageCategory]="currentStep.category" *ngIf="currentStepIndex != -1 && currentStep.actionType == trainingActionType.IMAGE" [imageCount]="currentStep.quantity" [imageType]="currentStep.imageType" (responseSubmit)="handleImagesResponse($event)"></images>
+            <questions [questionCategory]="currentStep.category" *ngIf="currentStepIndex != -1 && currentStep.actionType == trainingActionType.QUESTION" (responseSubmit)="handleResponse($event, trainingActionType.QUESTION)"></questions>
+            <images [imageCategory]="currentStep.category" *ngIf="currentStepIndex != -1 && currentStep.actionType == trainingActionType.IMAGE" [imageCount]="currentStep.quantity" [imageType]="currentStep.imageType" (responseSubmit)="handleResponse($event, trainingActionType.IMAGE)"></images>
           </div>
         </div>
       </div>

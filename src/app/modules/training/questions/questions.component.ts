@@ -51,9 +51,18 @@ export class QuestionsComponent implements OnInit {
   }
 
   submitResponse() {
+    const responses = [];
+    this.questions.forEach(question => {
+      responses.push({
+        questionId: question._id,
+        name: question.name,
+        answer: this.questionnaireForm.get(question._id).value
+      })
+    })
+
     this.responseSubmit.emit({
       questionCategory: this.questionCategory._id,
-      responses: this.questionnaireForm.value
+      responses
     })
   }
 
