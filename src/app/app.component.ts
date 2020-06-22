@@ -24,6 +24,5 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.pushMessageService.requestPermission(this.authService.getUserData()._id);
   }
 }

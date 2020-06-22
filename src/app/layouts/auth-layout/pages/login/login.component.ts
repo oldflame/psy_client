@@ -4,6 +4,7 @@ import { AuthService } from '../../../../services/auth.service';
 import { ToastService, TOAST_TYPE } from '../../../../services/toast.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { PushMessageService } from 'src/app/services/push-message.service';
 
 @Component({
   selector: 'login',
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private toastService: ToastService,
-    private router: Router
+    private router: Router,
+    private pushMessageService: PushMessageService
   ) {}
 
   ngOnInit() {}
@@ -42,6 +44,8 @@ export class LoginComponent implements OnInit {
               `Welcome, ${this.authService.getUserData().firstName}`,
               TOAST_TYPE.SUCCESS
             );
+            this.pushMessageService.requestPermission(this.authService.getUserData()._id);
+
             this.router.navigate(['/welcome']);
           }
         },

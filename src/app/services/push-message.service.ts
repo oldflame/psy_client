@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { AngularFireMessaging } from "@angular/fire/messaging";
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: "root",
@@ -8,7 +9,7 @@ import { AngularFireMessaging } from "@angular/fire/messaging";
 export class PushMessageService {
   pushMessageSubject = new BehaviorSubject(null);
 
-  constructor(private angularFireMessaging: AngularFireMessaging) {}
+  constructor(private angularFireMessaging: AngularFireMessaging, private dataService: DataService) {}
 
   /**
    * update token in firebase database
@@ -19,6 +20,7 @@ export class PushMessageService {
   updateToken(userId: string, token: string) {
     // we can change this function to request our backend service
     console.log(userId, token);
+    return this.dataService.sendPUT(`/api/notification/user/${userId}/token/${token}`);
     // this.receiveMessage();
   }
 
@@ -31,7 +33,7 @@ export class PushMessageService {
     this.angularFireMessaging.requestToken.subscribe(
       (token) => {
         console.log(token);
-        this.updateToken(userId, token);
+        this.updateToken(userId, token).subscribe();
       },
       (err) => {
         console.error("Unable to get permission to notify.", err);
