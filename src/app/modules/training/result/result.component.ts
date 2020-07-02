@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { TrainingService } from '../../../services/training.service';
 import { EMPTY } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'result',
@@ -14,8 +15,13 @@ export class ResultComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private trainingService: TrainingService
+    private trainingService: TrainingService,
+    private router: Router
   ) {}
+
+  showGoodbye() {
+    this.router.navigate(['/goodbye']);
+  }
 
   ngOnInit(): void {
     this.route.queryParams

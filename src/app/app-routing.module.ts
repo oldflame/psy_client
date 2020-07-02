@@ -6,6 +6,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthLayoutModule } from './layouts/auth-layout/auth-layout.module';
 import { WelcomeModule } from './modules/welcome/welcome.module';
 import { TrainingModule } from './modules/training/training.module';
+import { GoodbyeModule } from './modules/goodbye/goodbye.module';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
         loadChildren: () => TrainingModule,
         canActivate: [AuthGuardService],
       },
+      {
+        path: 'goodbye',
+        loadChildren: () => GoodbyeModule,
+        canActivate: [AuthGuardService],
+      }
     ],
   },
   {
