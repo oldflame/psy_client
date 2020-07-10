@@ -11,13 +11,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./result.component.scss'],
 })
 export class ResultComponent implements OnInit {
-  trainingSession;
+  avgResponseTime;
+  accuracy;
 
   constructor(
     private route: ActivatedRoute,
     private trainingService: TrainingService,
     private router: Router
-  ) {}
+  ) {
+    this.avgResponseTime = 0;
+    this.accuracy = 0.0;
+  }
 
   showGoodbye() {
     this.router.navigate(['/goodbye']);
@@ -34,7 +38,21 @@ export class ResultComponent implements OnInit {
         })
       )
       .subscribe((res) => {
-        this.trainingSession = res;
+        let correctCount = 0;
+        let totalCount = 0;
+         res.responses.forEach(element => {
+          if(element.actionType==0){ element.responses.forEach(ele => {
+              if (ele.isCorrect == true) { 
+                correctCount += 1; 
+              }
+              totalCount += 1;
+              this.avgResponseTime += ele.time;
+          });}
+        });
+        this.avgResponseTime = this.avgResponseTime / totalCount;
+        this.accuracy = (correctCount/totalCount) * 100;
       });
   }
+
+
 }
