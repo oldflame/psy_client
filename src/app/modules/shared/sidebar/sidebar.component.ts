@@ -49,6 +49,12 @@ export const ROUTES: RouteInfo[] = [
     type: 'child',
     icontype: 'pending_actions',
   },
+  {
+    path: '/goodbye',
+    title: 'Goodbye',
+    type: 'child',
+    icontype: 'assignment_turned_in'
+  }
 ];
 
 @Component({
