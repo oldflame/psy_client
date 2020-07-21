@@ -1,14 +1,38 @@
 <div *ngIf="currentImageIndex != null">
-  <div class="d-flex justify-content-around align-items-center">
-    <img id='trial-img' [src]="images[currentImageIndex].url" (document:animationend)="animationDone($event)" (swipeup)="swipeUp()" (swipedown)="swipeDown()"
-      (swiperight)="swipeRight()" (swipeleft)="swipeLeft()" alt="trial-image" class="animate__animated pointer"
-      [ngClass]="{'animate__zoomOut': userAction == swipeAction.UP, 'animate__fadeOutRight': userAction == swipeAction.RIGHT, 'animate__fadeOutLeft': userAction == swipeAction.LEFT, 'animate__zoomIn': userAction == swipeAction.DOWN}">
+  <div
+    [ngClass]="{
+      'bg-primary': images[currentImageIndex].imageType < 0,
+      'bg-danger': images[currentImageIndex].imageType > 0,
+      'bg-warning': images[currentImageIndex].imageType == 0
+    }"
+  >
+    <div class="d-flex justify-content-around align-items-center p-5">
+      <img
+        id="trial-img"
+        [src]="images[currentImageIndex].url"
+        (document:animationend)="animationDone($event)"
+        (swipeup)="swipeUp()"
+        (swipedown)="swipeDown()"
+        (swiperight)="swipeRight()"
+        (swipeleft)="swipeLeft()"
+        alt="trial-image"
+        class="animate__animated pointer"
+        [ngClass]="{
+          animate__zoomOut: userAction == swipeAction.UP,
+          animate__fadeOutRight: userAction == swipeAction.RIGHT,
+          animate__fadeOutLeft: userAction == swipeAction.LEFT,
+          animate__zoomIn: userAction == swipeAction.DOWN
+        }"
+      />
+    </div>
   </div>
   <p class="text-center mt-2">Swipe Up, Down or Sideways to respond.</p>
 </div>
 <div *ngIf="currentImageIndex == null">
   <div class="text-center">
     <h2>Click Begin whenever you're ready to begin.</h2>
-    <button mat-raised-button color="primary" (click)="beginGame()">Begin</button>
+    <button mat-raised-button color="primary" (click)="beginGame()">
+      Begin
+    </button>
   </div>
 </div>
