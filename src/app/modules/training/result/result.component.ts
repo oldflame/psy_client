@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class ResultComponent implements OnInit {
   avgResponseTime;
   accuracy;
+  results;
 
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +41,10 @@ export class ResultComponent implements OnInit {
       .subscribe((res) => {
         let correctCount = 0;
         let totalCount = 0;
+
+        if (res) {
+          this.results = res.responses;
+        }
          res.responses.forEach(element => {
           if(element.actionType==0){ element.responses.forEach(ele => {
               if (ele.isCorrect == true) { 
